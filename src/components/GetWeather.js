@@ -36,11 +36,8 @@ export function GetWeather() {
             setInputText("");
         }
     };
-    
-let sunset = data.dt;
-let date = new Date();
-date.setTime(sunset);
-let sunset_date = date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
+
+
 
     return (
         <div className="bg_img">
@@ -61,7 +58,7 @@ let sunset_date = date.getHours() + ':' + date.getMinutes() + ':' + date.getSeco
                             src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`}
                             alt=""
                         />
-                        <h1>{data.weather[0].main}</h1>
+                        <h1 className = "clouds">{data.weather[0].main}</h1>
                     </div>
 
                     <h1 className="temp">{data.main.temp.toFixed()} °C</h1>
@@ -74,8 +71,8 @@ let sunset_date = date.getHours() + ':' + date.getMinutes() + ':' + date.getSeco
                             </div>
 
                             <div className="box">
-                                <p>Data</p>
-                                <h1>{sunset_date}</h1>
+                                <p>Sea Level</p>
+                                <h1>{data.main.sea_level || 'no information about'} m</h1>
                             </div>
 
                             <div className="box">
