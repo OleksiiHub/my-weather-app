@@ -1,7 +1,6 @@
 import { CircularProgress, Slide, TextField } from "@mui/material";
 import { useEffect, useState } from "react";
-import { AboutProject } from './components/AboutProject';
-
+import { AboutProject } from '../components/AboutProject';
 import { GiWinterHat, GiWinterGloves, GiDress, GiTShirt, GiUnderwearShorts, GiHoodie, GiTrousers, GiMonclerJacket, GiLabCoat } from "react-icons/gi";
 
 export function GetWeather() {
@@ -11,7 +10,6 @@ export function GetWeather() {
     const [data, setData] = useState({});
     const [error, setError] = useState(false);
     const [loading, setLoading] = useState(true);
-
 
     const API_KEY = '07fc0e6279dd2ad5b7595ff0bf4ab81c';
 
@@ -61,7 +59,6 @@ export function GetWeather() {
     }
 
     return (
-
         <div className="bg_img">
             {!loading ? (
                 <>
@@ -87,43 +84,38 @@ export function GetWeather() {
 
                     <Slide direction="right" timeout={800} in={!loading}>
                         <div className="box_container">
-
-                        <AboutProject />
-
-
                             <div className="box">
                                 <p>Humidity</p>
                                 <h1>{data.main.humidity.toFixed()}%</h1>
                             </div>
-
                             <div className="box">
                                 <p>Sea Level</p>
                                 <h1>{data.main.sea_level || '- - -'} m</h1>
                             </div>
-
                             <div className="box">
                                 <p>Wind</p>
                                 <h1>{data.wind.speed.toFixed()} km/h</h1>
                             </div>
-
                             <div className="box">
                                 <p>Feels Like</p>
                                 <h1>{data.main.feels_like.toFixed()}</h1>
                             </div>
-
                             <div className="box">
                                 <p>What to wear?</p>
-
                                 <h1>{wear()}</h1>
                             </div>
+     
+                          
+        
 
                         </div>
+                       
                     </Slide>
+                    <AboutProject />
                 </>
             ) : (
                 <CircularProgress />
             )}
-
         </div>
     );
 }

@@ -1,7 +1,8 @@
+
 export function AboutProject() {
     return (
         <>
-            <h1>AboutAboutAboutAbout</h1>
+            <h1 className = "g_color">About Me</h1>
         </>
     )
 }
