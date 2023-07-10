@@ -1,5 +1,7 @@
 import { CircularProgress, Slide, TextField } from "@mui/material";
 import { useEffect, useState } from "react";
+import { AboutProject } from './components/AboutProject';
+
 import { GiWinterHat, GiWinterGloves, GiDress, GiTShirt, GiUnderwearShorts, GiHoodie, GiTrousers, GiMonclerJacket, GiLabCoat } from "react-icons/gi";
 
 export function GetWeather() {
@@ -85,6 +87,10 @@ export function GetWeather() {
 
                     <Slide direction="right" timeout={800} in={!loading}>
                         <div className="box_container">
+
+                        <AboutProject />
+
+
                             <div className="box">
                                 <p>Humidity</p>
                                 <h1>{data.main.humidity.toFixed()}%</h1>
@@ -117,6 +123,7 @@ export function GetWeather() {
             ) : (
                 <CircularProgress />
             )}
+
         </div>
     );
 }
