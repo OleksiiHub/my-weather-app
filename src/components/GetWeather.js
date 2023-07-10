@@ -1,5 +1,7 @@
 import { CircularProgress, Slide, TextField } from "@mui/material";
 import { useEffect, useState } from "react";
+import { FaShirt } from "react-icons/fa6";
+import { GiLabCoat, GiShirt, GiTrousers, GiMonclerJacket } from "react-icons/gi";
 
 export function GetWeather() {
 
@@ -8,6 +10,7 @@ export function GetWeather() {
     const [data, setData] = useState({});
     const [error, setError] = useState(false);
     const [loading, setLoading] = useState(true);
+ 
 
     const API_KEY = '07fc0e6279dd2ad5b7595ff0bf4ab81c';
 
@@ -37,9 +40,27 @@ export function GetWeather() {
         }
     };
 
+    function wear() {
+        if (data.main.feels_like.toFixed() > 20) {
+            return <FaShirt />
+        }
+        else if (data.main.feels_like.toFixed() <= 20) {
+            return <GiShirt />
+        }
+        else if (data.main.feels_like.toFixed() <= 15) {
+            return <GiTrousers />
+        }
+        else if (data.main.feels_like.toFixed() <= 5) {
+            return <GiLabCoat />
+        }
+        else if (data.main.feels_like.toFixed() <= 0) {
+            return <GiMonclerJacket />
+        }
 
+    }
 
     return (
+
         <div className="bg_img">
             {!loading ? (
                 <>
@@ -58,7 +79,7 @@ export function GetWeather() {
                             src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`}
                             alt=""
                         />
-                        <h1 className = "clouds">{data.weather[0].main}</h1>
+                        <h1 className="clouds">{data.weather[0].main}</h1>
                     </div>
 
                     <h1 className="temp">{data.main.temp.toFixed()} °C</h1>
@@ -72,7 +93,7 @@ export function GetWeather() {
 
                             <div className="box">
                                 <p>Sea Level</p>
-                                <h1>{data.main.sea_level || 'no information about'} m</h1>
+                                <h1>{data.main.sea_level || '- - -'} m</h1>
                             </div>
 
                             <div className="box">
@@ -82,8 +103,15 @@ export function GetWeather() {
 
                             <div className="box">
                                 <p>Feels Like</p>
-                                <h1>{data.main.feels_like.toFixed()} °C</h1>
+                                <h1>{data.main.feels_like.toFixed()}</h1>
                             </div>
+
+                            <div className="box">
+                                <p>What to wear?</p>
+
+                                <h1>{wear()}</h1>
+                            </div>
+
                         </div>
                     </Slide>
                 </>
@@ -94,5 +122,4 @@ export function GetWeather() {
     );
 }
 
-export default GetWeather;
 
