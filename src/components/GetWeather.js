@@ -1,7 +1,6 @@
 import { CircularProgress, Slide, TextField } from "@mui/material";
 import { useEffect, useState } from "react";
-import { FaShirt } from "react-icons/fa6";
-import { GiLabCoat, GiShirt, GiTrousers, GiMonclerJacket } from "react-icons/gi";
+import { GiWinterHat, GiWinterGloves, GiDress, GiTShirt, GiUnderwearShorts, GiHoodie, GiTrousers, GiMonclerJacket, GiLabCoat } from "react-icons/gi";
 
 export function GetWeather() {
 
@@ -10,7 +9,7 @@ export function GetWeather() {
     const [data, setData] = useState({});
     const [error, setError] = useState(false);
     const [loading, setLoading] = useState(true);
- 
+
 
     const API_KEY = '07fc0e6279dd2ad5b7595ff0bf4ab81c';
 
@@ -42,19 +41,19 @@ export function GetWeather() {
 
     function wear() {
         if (data.main.feels_like.toFixed() > 20) {
-            return <FaShirt />
+            return [<GiTShirt />, <GiUnderwearShorts />, <GiDress />]
         }
-        else if (data.main.feels_like.toFixed() <= 20) {
-            return <GiShirt />
+        else if (data.main.feels_like.toFixed() <= 20 && data.main.feels_like.toFixed() > 15) {
+            return [<GiHoodie />, <GiTrousers />]
         }
-        else if (data.main.feels_like.toFixed() <= 15) {
-            return <GiTrousers />
+        else if (data.main.feels_like.toFixed() <= 15 && data.main.feels_like.toFixed() > 5) {
+            return <GiMonclerJacket />
         }
-        else if (data.main.feels_like.toFixed() <= 5) {
+        else if (data.main.feels_like.toFixed() <= 5 && data.main.feels_like.toFixed() > 0) {
             return <GiLabCoat />
         }
         else if (data.main.feels_like.toFixed() <= 0) {
-            return <GiMonclerJacket />
+            return [<GiWinterHat />, <GiWinterGloves />]
         }
 
     }
