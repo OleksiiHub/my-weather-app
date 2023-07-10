@@ -1,6 +1,7 @@
 import { CircularProgress, Slide, TextField } from "@mui/material";
 import { useEffect, useState } from "react";
-import { AboutProject } from '../components/AboutProject';
+import { NestedModal } from '../components/NestedModal';
+
 import { GiWinterHat, GiWinterGloves, GiDress, GiTShirt, GiUnderwearShorts, GiHoodie, GiTrousers, GiMonclerJacket, GiLabCoat } from "react-icons/gi";
 
 export function GetWeather() {
@@ -111,7 +112,7 @@ export function GetWeather() {
                         </div>
                        
                     </Slide>
-                    <AboutProject />
+                    <NestedModal />
                 </>
             ) : (
                 <CircularProgress />
