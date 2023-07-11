@@ -3,8 +3,6 @@ import Modal from '@mui/material/Modal';
 import Button from '@mui/material/Button';
 import { useState } from "react";
 
-
-
 const style = {
   position: 'absolute',
   top: '50%',
@@ -18,7 +16,6 @@ const style = {
   px: 4,
   pb: 3,
 };
-
 
 export function NestedModal() {
   const [open, setOpen] = useState(false);
@@ -41,7 +38,9 @@ export function NestedModal() {
         <Box sx={{ ...style, width: 400 }}>
           <h2 id="parent-modal-title">Описание</h2>
           <p className='m-1' id="parent-modal-description">
-            Приложение "Weather App v.1.1.0", в котором показывает текущую погоду о введеном Вами городе, а так же некоторые метерологические данные на текущий момент, и показывает что лучше одеть.
+            Приложение "Weather App v.1.1.0", в котором показывает текущую 
+            погоду о введеном Вами городе, а так же некоторые метерологические 
+            данные на текущий момент, и показывает что лучше одеть.
           </p>
           <p >Buntikov Oleksii  2023</p>
         </Box>

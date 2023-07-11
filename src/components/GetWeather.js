@@ -1,7 +1,6 @@
 import { CircularProgress, Slide, TextField } from "@mui/material";
 import { useEffect, useState } from "react";
 import { NestedModal } from '../components/NestedModal';
-
 import { GiWinterHat, GiWinterGloves, GiDress, GiTShirt, GiUnderwearShorts, GiHoodie, GiTrousers, GiMonclerJacket, GiLabCoat } from "react-icons/gi";
 
 export function GetWeather() {
@@ -56,7 +55,6 @@ export function GetWeather() {
         else if (data.main.feels_like.toFixed() <= 0) {
             return [<GiWinterHat />, <GiWinterGloves />]
         }
-
     }
 
     return (
@@ -76,7 +74,7 @@ export function GetWeather() {
                     <div className="group">
                         <img
                             src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`}
-                            alt=""
+                            alt="cloud"
                         />
                         <h1 className="clouds">{data.weather[0].main}</h1>
                     </div>
@@ -105,12 +103,7 @@ export function GetWeather() {
                                 <p>What to wear?</p>
                                 <h1>{wear()}</h1>
                             </div>
-     
-                          
-        
-
                         </div>
-                       
                     </Slide>
                     <NestedModal />
                 </>
