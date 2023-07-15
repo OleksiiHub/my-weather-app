@@ -22,7 +22,7 @@ export function GetWeather() {
                     error && setError(false);
                     return res.json();
                 } else {
-                    throw new Error("Something went wrong");
+                    throw new Error("Что-то пошло не так");
                 }
             })
             .then((data) => {
